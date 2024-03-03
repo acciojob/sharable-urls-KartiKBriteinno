@@ -1,17 +1,17 @@
-const express = require('express');
-const path = require('path');
+const nameInput = document.getElementById("name");
+const yearInput = document.getElementById("year");
+const urlText = document.getElementById("url");
+const form = document.getElementById("url-form");
 
-const app = express();
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
 
-app.use(express.static(__dirname))
+  const name = nameInput.value;
+  const year = yearInput.value;
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/main.html'));
+  // Build the query string
+  const queryString = `?name=${name}&year=${year}`;
+
+  // Update the URL text
+  urlText.textContent = `https://localhost:8080/${queryString}`;
 });
-//your code here
-app.post('/add', (req, res) => {
-  const {a,b} = req.body;
-  res.status(200).send(a+b);
-  // res.sendFile(path.join(__dirname + '/main.html'));
-});
-module.exports = app;
