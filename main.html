@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <script type="text/javascript" src="./script.js">
-</script>
-  <form onsubmit="return updateURL()">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        
-        <label for="year">Year:</label>
-        <input type="number" id="year" name="year"><br><br>
-        
-        <input type="submit" id="button" value="Generate URL"><br><br>
-    </form>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <br><br>
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year">
+    <br><br>
+    <button id="submit-button">Submit</button>
+    <input type="button" id="other-button" value="Other Button">
+  </form>
+  <br><br>
+  <h3 id="url">https://localhost:8080/</h3>
+  <script>
+    document.getElementById("submit-button").addEventListener("click", function() {
+      var name = document.getElementById("name").value;
+      var year = document.getElementById("year").value;
+      var queryString = "?name=" + name + "&year=" + year;
+      document.getElementById("url").textContent = "https://localhost:8080/" + queryString;
+    });
+  </script>
   </body>
 
 </html>
