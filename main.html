@@ -3,8 +3,7 @@
   <body>
     <script type="text/javascript" src="./script.js">
 </script>
-
- <form onsubmit="updateURL(); return false;">
+  <form onsubmit="return updateURL()">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name"><br><br>
         
@@ -13,8 +12,6 @@
         
         <input type="submit" id="button" value="Generate URL"><br><br>
     </form>
-
-    <h3 id="url">https://localhost:8080/</h3>
   </body>
 
 </html>
